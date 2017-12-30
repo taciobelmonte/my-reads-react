@@ -9,7 +9,9 @@ To get started developing right away:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-## Table of structure
+It's done! You should have Readings Management running...
+
+## Project Structure
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
@@ -33,6 +35,7 @@ To get started developing right away:
             └── Book.js
             └── BookShelf.js
             └── Collection.js
+            └── Menu.js
             └── Search.js
     ├── tests 
             ├── App.test.js
@@ -42,6 +45,3 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
