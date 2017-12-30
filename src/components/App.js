@@ -9,7 +9,7 @@ import './../assets/css/App.css'
 
 class ReadingsManagement extends React.Component {
 
-    //Define state to populate with books
+    //Defining states
     state = {
         bookCollection : [],
         bookSearchCollection:[],
@@ -39,7 +39,6 @@ class ReadingsManagement extends React.Component {
     //Function to update book state on Search results
     updateBook(books) {
         const filteredBooks = books.map(book => {
-
             book.shelf = "none";
 
             this.state.bookCollection.forEach(bookOnShelf =>{
