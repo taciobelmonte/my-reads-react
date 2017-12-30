@@ -42,6 +42,6 @@ It's done! You should have Readings Management running...
     ├── utils 
             ├── BooksAPI.js
                 
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    └── index.js
 ```
 
