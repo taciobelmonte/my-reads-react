@@ -4,23 +4,24 @@ Readings Management is a project from Udacity's React Nanodegree course. This is
 
 ## How to get started
 
-To get started developing right away:
+To setup this app, you will need to follow the instructions below:
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+1 - Install all project dependencies with `npm install`
 
-It's done! You should have Readings Management running...
+2 - Start the development server with `npm start`
+
+It's done! You should have Readings Management running straight way...
 
 ## Project Structure
 ```bash
 ├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── README.md
+├── SEARCH_TERMS.md 
+├── package.json
 ├── node_modules
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
+│   ├── favicon.ico
+│   └── index.html
 └── src
     ├── assets
         css 
