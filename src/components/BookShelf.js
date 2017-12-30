@@ -19,7 +19,7 @@ class BookShelf extends Component{
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {bookCollection.map((book) => (
-                            <li key={book.id} className='book-item fade'>
+                            <li key={book.id} className='book-item fadeIn'>
                                 <Book changeBookShelf={ changeBookShelf } book={book}/>
                             </li>
                         ))}
@@ -29,7 +29,6 @@ class BookShelf extends Component{
                 {(bookCollection.length === 0) && (
                     <p>There are no books for this shelf!</p>
                 )}
-
             </div>
         )
     }

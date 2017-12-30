@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Collection from './../components/Collection'
 import Search from './../components/Search'
+import Menu from './../components/Menu'
 import * as BooksAPI from './../utils/BooksAPI'
 import './../assets/css/App.css'
 
@@ -11,6 +12,7 @@ class ReadingsManagement extends React.Component {
     //Define state to populate with books
     state = {
         bookCollection : [],
+        bookSearchCollection:[],
         loading:true,
         query : ''
     };
@@ -26,56 +28,81 @@ class ReadingsManagement extends React.Component {
     }
 
     //Function to perform book changing from shelves
-    changeBookShelf = (book, nShelf) => {
+    changeBookShelf = (book, nShelf, type) => {
         BooksAPI.update(book, nShelf).then(() => {
             book.shelf = nShelf;
             this.setState(state => ({
-                bookCollection: state.bookCollection.filter(b=>b.id!==book.id).concat([ book ])
+                bookCollection: state.bookCollection.filter(item=>item.id!==book.id).concat([ book ])
             }));
         });
     };
 
+    //Function to get books from API based on a query
+    search = (myQuery,results) => {
+        BooksAPI.search(myQuery,results).then(results => {
+            this.setState({
+                bookSearchCollection: results
+            });
+        });
+    };
+
     render() {
+
         //Defining constants to clear code
-        const {title}           = this.props;
-        const {bookCollection}  = this.state;
+        const {title}                                   = this.props;
+        const {bookCollection, bookSearchCollection}    = this.state;
 
         return (
-            <div className="main-app-container">
-                <Route
-                    exact
-                    path="/"
-                    render={
-                        ()=>(
-                            <div className="list-books">
-                                <div className="list-books-title">
-                                    <h1>{title}</h1>
-                                </div>
-                                <div className="list-books-content">
-                                    <div className="collection">
-                                        <Collection changeBookShelf={ this.changeBookShelf } bookCollection={this.state.bookCollection} />
+        <section id="main-application">
+
+            <header className="header black-bg">
+                <Link to="/" className="logo"><b>{title}</b></Link>
+            </header>
+
+            <section className="row">
+                <div className="col-md-12 col-xs-12 row">
+                    <Menu />
+                    <div className="main-app col-md-10 col-xs-12">
+                        <Route
+                            exact
+                            path="/"
+                            render={
+                                ()=>(
+                                    <div className="list-books">
+                                        <div className="list-books-content">
+                                            <div className="collection">
+                                                <Collection changeBookShelf={ this.changeBookShelf }
+                                                            bookCollection={bookCollection}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="open-search">
+                                            <Link to='/search'>Search a book</Link>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="open-search">
-                                    <Link to='/search'>Search a book</Link>
-                                </div>
-                            </div>
-                        )
-                    }
-                />
-                <Route
-                    path="/search"
-                    render={
-                        ()=>(
-                            <div className="app">
-                                <div className="search-books">
-                                    <Search changeBookShelf={ this.changeBookShelf } bookCollection={bookCollection} />
-                                </div>
-                            </div>
-                        )
-                    }
-                />
-            </div>
+                                )
+                            }
+                        />
+                        <Route
+                            path="/search"
+                            render={
+                                ()=>(
+                                    <div className="app">
+                                        <div className="search-books">
+                                            <Search
+                                                search={this.search}
+                                                changeBookShelf={ this.changeBookShelf }
+                                                bookSearchCollection={bookSearchCollection}
+                                            />
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        />
+                    </div>
+                </div>
+            </section>
+        </section>
         )
     }
 }

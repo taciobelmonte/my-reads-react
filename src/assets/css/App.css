@@ -11,7 +11,6 @@ body, .app {
 }
 
 /* main page */
-
 .list-books-title {
     padding: 10px 0;
     background: #cb9621;
@@ -25,18 +24,12 @@ body, .app {
 }
 
 .list-books-content {
-    padding: 0 0 80px;
+    padding: 70px 0 80px;
     flex: 1;
 }
 
 .bookshelf {
     padding: 0 10px 20px;
-}
-
-@media (min-width: 600px) {
-    .bookshelf {
-        padding: 0 20px 40px;
-    }
 }
 
 .bookshelf-title {
@@ -94,12 +87,11 @@ body, .app {
 }
 
 /* search page */
-
 .search-books-bar {
     position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+    width: 83.5%;
+    top: 60px;
+    right: 0;
     z-index: 5;
     display: flex;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
@@ -133,7 +125,7 @@ body, .app {
 }
 
 .search-books-results {
-    padding: 80px 10px 20px;
+    padding: 150px 10px 20px;
 }
 
 /* books grid */
@@ -240,7 +232,7 @@ body, .app {
 }
 
 /*Transitions*/
-.fade {
+.fadeIn {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
     -ms-animation: fadein 2s; /* Internet Explorer */
@@ -365,3 +357,30 @@ body, .app {
 .show-all{
     color:#cb9621;
 }
+
+.main-app{
+    padding:0 0 0 5%;
+}
+
+/*Responsive*/
+@media (max-width:660px){
+    .collection{
+        padding:40% 0 0 4%;
+    }
+}
+
+@media (max-width:460px){
+    #main-application{
+        overflow:hidden;
+    }
+    .collection{
+        padding:40% 0 0 0;
+    }
+}
+
+@media (min-width: 600px) {
+    .bookshelf {
+        padding: 0 20px 40px;
+    }
+}
+
