@@ -22,7 +22,6 @@ class ReadingsManagement extends React.Component {
 
         //Get books utilizing API
         BooksAPI.getAll().then( bookCollection => {
-            //console.log(bookCollection);
             this.setState({bookCollection});
         });
     }
@@ -37,13 +36,37 @@ class ReadingsManagement extends React.Component {
         });
     };
 
+    //Function to update book state on Search results
+    updateBook(books) {
+        const filteredBooks = books.map(book => {
+
+            book.shelf = "none";
+
+            this.state.bookCollection.forEach(bookOnShelf =>{
+                if (book.id === bookOnShelf.id)
+                    book.shelf = bookOnShelf.shelf;
+            });
+
+          return book;
+        });
+
+        this.setState({
+            bookSearchCollection: filteredBooks
+         });
+    }
+
     //Function to get books from API based on a query
     search = (myQuery,results) => {
-        BooksAPI.search(myQuery,results).then(results => {
-            this.setState({
-                bookSearchCollection: results
-            });
-        });
+        BooksAPI.search(myQuery,results).then(
+            res => {
+                if (!res.error) {
+                    this.updateBook(res);
+                } else {
+                    this.setState({
+                        bookSearchCollection: []
+                    });
+                }
+            })
     };
 
     render() {

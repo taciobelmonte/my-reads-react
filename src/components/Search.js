@@ -19,7 +19,7 @@ class Search extends React.Component {
 
     //Method to update query state
     updateQuery = (query) => {
-        this.setState({ query: query });
+        this.setState({ query: query.trim() });
         this.props.search(this.state.query, 30);
     };
 
@@ -35,7 +35,6 @@ class Search extends React.Component {
                     <div className="search-books-input-wrapper">
                         <input type="text"
                                value={query}
-                               onLoadStart={(event)=>this.updateQuery(event.target.value)}
                                onChange={(event)=> this.updateQuery(event.target.value)}
                                placeholder="Search by title"
                         />
@@ -57,5 +56,4 @@ class Search extends React.Component {
         )
     }
 }
-
 export default Search

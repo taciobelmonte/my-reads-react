@@ -26,9 +26,9 @@ class BookShelf extends Component{
                     </ol>
                 </div>
 
-                {(bookCollection.length === 0) && (
-                    <p>There are no books for this shelf!</p>
-                )}
+                {/*{(bookCollection.length === 0) && (*/}
+                    {/*<p>There are no books for this shelf!</p>*/}
+                {/*)}*/}
             </div>
         )
     }
