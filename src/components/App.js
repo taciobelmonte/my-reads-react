@@ -13,7 +13,6 @@ class ReadingsManagement extends React.Component {
     state = {
         bookCollection : [],
         bookSearchCollection:[],
-        loading:true,
         query : ''
     };
 
