@@ -57,7 +57,7 @@ class ReadingsManagement extends React.Component {
     search = (myQuery,results) => {
         BooksAPI.search(myQuery,results).then(
             res => {
-                if (!res.error) {
+                if(res && !res.error){
                     this.updateBook(res);
                 } else {
                     this.setState({
