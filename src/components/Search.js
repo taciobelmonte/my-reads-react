@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Book from './../components/Book'
 import PropTypes from "prop-types";
-import './../assets/css/App.css'
+import './../assets/app/App.css'
 
 class Search extends React.Component {
 

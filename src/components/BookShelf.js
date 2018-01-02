@@ -18,7 +18,7 @@ class BookShelf extends Component{
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {bookCollection.map((book) => (
-                            <li key={book.id} className='book-item fadeIn'>
+                            <li key={book.id} className='book-item'>
                                 <Book changeBookShelf={ changeBookShelf } book={book}/>
                             </li>
                         ))}

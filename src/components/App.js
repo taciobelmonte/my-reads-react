@@ -5,7 +5,7 @@ import Collection from './../components/Collection'
 import Search from './../components/Search'
 import Menu from './../components/Menu'
 import * as BooksAPI from './../utils/BooksAPI'
-import './../assets/css/App.css'
+import './../assets/app/App.css'
 
 class ReadingsManagement extends React.Component {
 
