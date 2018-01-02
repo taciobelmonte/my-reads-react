@@ -18,7 +18,6 @@ It's done! You should have Readings Management running straight way...
 ├── README.md
 ├── SEARCH_TERMS.md 
 ├── package.json
-├── node_modules
 ├── public
 │   ├── favicon.ico
 │   └── index.html
