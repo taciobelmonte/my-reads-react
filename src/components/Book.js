@@ -14,10 +14,16 @@ class Book extends Component{
     render(){
         const {book} = this.props;
 
+        let backgroundImage;
+        if(book.imageLinks)
+            backgroundImage = book.imageLinks.thumbnail;
+        else
+            backgroundImage = 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';
+
         return(
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${backgroundImage})` }}></div>
                     <div className="book-shelf-changer">
                         <select onChange={this.changeBookShelf} value={book.shelf}>
                                 <option disabled>Move to...</option>

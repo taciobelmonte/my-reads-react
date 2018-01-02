@@ -70,8 +70,8 @@ class ReadingsManagement extends React.Component {
     render() {
 
         //Defining constants to clear code
-        const {title}                                   = this.props;
-        const {bookCollection, bookSearchCollection}    = this.state;
+        const {title} = this.props;
+        const {bookCollection, bookSearchCollection} = this.state;
 
         return (
         <section id="main-application">

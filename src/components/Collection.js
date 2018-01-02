@@ -12,9 +12,9 @@ class Collection extends Component{
     render(){
         const {bookCollection, changeBookShelf} = this.props;
 
-        const currentlyReading      = bookCollection.filter(book => book.shelf === "currentlyReading");
-        const wantToRead            = bookCollection.filter(book => book.shelf === "wantToRead");
-        const read                  = bookCollection.filter(book => book.shelf === "read");
+        const currentlyReading = bookCollection.filter(book => book.shelf === "currentlyReading");
+        const wantToRead = bookCollection.filter(book => book.shelf === "wantToRead");
+        const read = bookCollection.filter(book => book.shelf === "read");
 
         return(
                 <div>

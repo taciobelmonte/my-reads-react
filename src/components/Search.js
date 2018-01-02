@@ -20,7 +20,7 @@ class Search extends React.Component {
     //Method to update query state
     updateQuery = (query) => {
         this.setState({ query: query.trim() });
-        this.props.search(this.state.query, 30);
+        this.props.search(query, 30);
     };
 
     render() {
