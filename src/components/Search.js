@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Book from './../components/Book'
 import PropTypes from "prop-types";
+import {DebounceInput} from 'react-debounce-input';
 import './../assets/app/App.css'
 
 class Search extends React.Component {
@@ -33,11 +34,12 @@ class Search extends React.Component {
                 <div className="search-books-bar">
                     <Link className="close-search" to='/'>Back</Link>
                     <div className="search-books-input-wrapper">
-                        <input type="text"
-                               value={query}
-                               onChange={(event)=> this.updateQuery(event.target.value)}
-                               placeholder="Search by title"
-                        />
+                        <DebounceInput
+                            minLength={3}
+                            debounceTimeout={1000}
+                            value={query}
+                            placeholder="Search by title"
+                            onChange={(event)=> this.updateQuery(event.target.value)} />
                     </div>
                 </div>
 
