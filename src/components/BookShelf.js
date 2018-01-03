@@ -2,15 +2,17 @@ import React, {Component} from 'react'
 import Book from './../components/Book'
 import PropTypes from "prop-types";
 
+
 class BookShelf extends Component{
 
     static propTypes = {
         title:PropTypes.string.isRequired,
+        classe:PropTypes.string.isRequired,
         changeBookShelf:PropTypes.func.isRequired,
     };
 
     render(){
-        const {title, bookCollection, changeBookShelf} = this.props;
+        const {title, bookCollection, changeBookShelf, classe} = this.props;
 
         return(
             <div className="bookshelf">
@@ -19,7 +21,7 @@ class BookShelf extends Component{
                     <ol className="books-grid">
                         {bookCollection.map((book) => (
                             <li key={book.id} className='book-item'>
-                                <Book changeBookShelf={ changeBookShelf } book={book}/>
+                                <Book changeBookShelf={ changeBookShelf } title={title} book={book} classe={classe}/>
                             </li>
                         ))}
                     </ol>

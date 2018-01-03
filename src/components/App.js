@@ -6,6 +6,7 @@ import Search from './../components/Search'
 import Menu from './../components/Menu'
 import * as BooksAPI from './../utils/BooksAPI'
 import './../assets/app/App.css'
+import BookDetail from './../components/BookDetail'
 
 class ReadingsManagement extends React.Component {
 
@@ -22,7 +23,10 @@ class ReadingsManagement extends React.Component {
         //Get books utilizing API
         BooksAPI.getAll().then( bookCollection => {
             this.setState({bookCollection});
+
+            console.log(bookCollection);
         });
+
     }
 
     //Function to perform book changing from shelves
@@ -32,24 +36,25 @@ class ReadingsManagement extends React.Component {
             this.setState(state => ({
                 bookCollection: state.bookCollection.filter(item=>item.id!==book.id).concat([ book ])
             }));
+
         });
     };
 
     //Function to update book state on Search results
     updateBook(books) {
         const filteredBooks = books.map(book => {
+            console.log(book);
             book.shelf = "none";
 
             this.state.bookCollection.forEach(bookOnShelf =>{
                 if (book.id === bookOnShelf.id)
-                    book.shelf = bookOnShelf.shelf;
+                    book = bookOnShelf;
             });
-
           return book;
         });
 
         this.setState({
-            bookSearchCollection: filteredBooks
+            bookSearchCollection: filteredBooks,
          });
     }
 
@@ -89,16 +94,21 @@ class ReadingsManagement extends React.Component {
                             path="/"
                             render={
                                 ()=>(
-                                    <div className="list-books">
-                                        <div className="list-books-content">
-                                            <div className="collection">
-                                                <Collection changeBookShelf={ this.changeBookShelf }
-                                                            bookCollection={bookCollection}
-                                                />
+                                    <div>
+                                        <div className="list-books">
+                                            <div className="list-books-content">
+                                                <div className="collection">
+                                                    <Collection changeBookShelf={ this.changeBookShelf }
+                                                                bookCollection={bookCollection}
+                                                    />
+                                                </div>
+                                                <div className="book-detail-container">
+                                                    <BookDetail book="book"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="open-search">
-                                            <Link to='/search'>Search a book</Link>
+                                            <div className="open-search">
+                                                <Link to='/search'>Search a book</Link>
+                                            </div>
                                         </div>
                                     </div>
                                 )

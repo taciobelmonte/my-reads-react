@@ -33,6 +33,8 @@ body, .app {
 
 .bookshelf {
   padding: 0 10px 20px;
+
+
 }
 
 .bookshelf-title {
@@ -95,7 +97,7 @@ body, .app {
   width: 83.5%;
   top: 60px;
   right: 0;
-  z-index: 5;
+  z-index: 1000;
   display: flex;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
 }
@@ -150,6 +152,8 @@ body, .app {
 
 .book {
   width: 140px;
+  position:relative;
+  padding:30px 0 0 0;
 }
 
 .book-title,
@@ -409,6 +413,156 @@ body, .app {
   .bookshelf {
     padding: 0 20px 40px;
   }
+}
+
+.book{
+  position:relative;
+}
+
+.currentlyReading{
+  background:#00c5de;
+}
+
+.wantToRead{
+  background:#c9302c;
+}
+
+.read{
+  background:#3c763d;
+}
+
+.favourite{
+  background:#cb9621;
+}
+
+.currentlyReading, .wantToRead, .read, .favourite{
+  width:100%;
+  z-index:199;
+  text-align:center;
+  color:#fff;
+  top:55px;
+  height:20px;
+  position:absolute;
+}
+
+.star{
+  position:absolute;
+  font-size: 16px;
+  top: -7px;
+  left:0;
+  color:#cb9621;
+  z-index:999;
+  cursor:pointer;
+}
+
+.fa-star-o:hover:before{
+  content: "\f005";
+}
+
+.detail{
+  opacity:0;
+  background:#fff;
+  visibility: hidden;
+  width:600px;
+  z-index:100000;
+  border-radius:20px;
+  padding:20px;
+  height:300px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin: auto;
+  border:3px dashed #cb9621;
+  @include transition(all 0.5s ease);
+}
+
+.description{
+  height: 120px;
+  overflow: auto;
+}
+
+.visible{
+  opacity:1;
+  visibility: visible;
+  @include transition(all 0.5s ease);
+
+  -webkit-animation: open 1s;
+  -moz-animation: open 1s;
+  -ms-animation: open 1s;
+  -o-animation: open 1s;
+  animation: open 1s;
 
 }
 
+.disappear{
+  opacity:0;
+  visibility: hidden!important;
+
+  -webkit-animation: closeAnim 1s!important;
+  -moz-animation: closeAnim 1s!important;
+  -ms-animation: closeAnim 1s!important;
+  -o-animation: closeAnim 1s!important;
+  animation: closeAnim 1s!important;
+  @include transition(all 0.5s ease);
+}
+
+@keyframes open {
+  from{
+    @include transform(scale(0));
+    @include transform(rotate(0deg));
+    @include transition(all 0.5s ease);
+  }
+  to{
+    @include transform(scale(1));
+    @include transform(rotate(360deg));
+    @include transition(all 0.5s ease);
+  }
+}
+
+@keyframes closeAnim {
+  from{
+    @include transform(scale(1));
+    @include transition(all 0.5s ease);
+  }
+  to{
+    @include transform(scale(0));
+    @include transition(all 0.5s ease);
+  }
+}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:20px;
+  z-index:2000;
+
+}
+
+.link-detail{
+  position:absolute;
+  cursor:pointer;
+  top:5px;
+  color:#37bc9b;
+  @include transition(all 0.5s ease);
+}
+
+.link-detail:hover{
+  @include transition(all 0.5s ease);
+
+  i{
+    @include transition(all 0.5s ease);
+    @include transform(rotate(180deg));
+  }
+
+}
+
+.cover-book-detail, .content-book-detail{
+  float:left;
+}
+
+.content-book-detail{
+  padding:0 0 0 20px;
+  width:70%;
+}

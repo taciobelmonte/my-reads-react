@@ -9,7 +9,7 @@ class Search extends React.Component {
     static propTypes = {
         search:PropTypes.func.isRequired,
         bookSearchCollection: PropTypes.array,
-        changeBookShelf: PropTypes.func.isRequired
+        changeBookShelf: PropTypes.func.isRequired,
     };
 
     //Defining states of component
@@ -46,7 +46,7 @@ class Search extends React.Component {
                         <ol className="books-grid">
                             {bookSearchCollection && bookSearchCollection.map((book) => (
                                 <li key={book.id} className='book-item'>
-                                    <Book changeBookShelf={changeBookShelf} book={book}/>
+                                    <Book changeBookShelf={ changeBookShelf } title={book.shelf === 'wantToRead' ? 'Want to Read' : book.shelf === 'currentlyReading' ? 'Currently Reading' : book.shelf === 'read' ? 'Read' : ''} book={book} classe={book.shelf}/>
                                 </li>
                             ))}
                         </ol>

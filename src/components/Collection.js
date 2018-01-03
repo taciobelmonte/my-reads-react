@@ -17,11 +17,13 @@ class Collection extends Component{
         const read = bookCollection.filter(book => book.shelf === "read");
 
         return(
+            <div>
                 <div>
-                    <BookShelf changeBookShelf={ changeBookShelf } title="Currently Reading" bookCollection={currentlyReading} />
-                    <BookShelf changeBookShelf={ changeBookShelf } title="Want to Read" bookCollection={wantToRead} />
-                    <BookShelf changeBookShelf={ changeBookShelf } title="Read" bookCollection={read}/>
+                    <BookShelf changeBookShelf={ changeBookShelf } classe="currentlyReading" title="Currently Reading" bookCollection={currentlyReading} />
+                    <BookShelf changeBookShelf={ changeBookShelf } classe="wantToRead" title="Want to Read" bookCollection={wantToRead} />
+                    <BookShelf changeBookShelf={ changeBookShelf } classe="read" title="Read" bookCollection={read}/>
                 </div>
+            </div>
             )
         }
     }
