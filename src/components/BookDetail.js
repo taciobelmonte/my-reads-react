@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 class BookDetail extends React.Component {
 
     componentDidMount(){
-
         document.addEventListener('keyup', (e) => {
             if (e.keyCode === 27){
                 this.props.close();

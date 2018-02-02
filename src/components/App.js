@@ -22,9 +22,8 @@ class ReadingsManagement extends React.Component {
 
         //Get books utilizing API
         BooksAPI.getAll().then( bookCollection => {
+            //console.log(bookCollection);
             this.setState({bookCollection});
-
-            // console.log(bookCollection);
         });
 
     }
